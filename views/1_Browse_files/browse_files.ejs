@@ -1,0 +1,14 @@
+<%- include('../0_Home_page_frame/top_title.ejs') %>
+<link rel='stylesheet' href='/stylesheets/1_browse_files.css' />
+<div class="body_Page">
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <a href="/fs" class="back-button hand-shape">Desktop</a>
+    <div  class="path-locשtion"> <%= locשtion %> </div>
+    <ul class="ul-folders">
+        <li> <%- contentFolder %> </li>
+    </ul>
+  </div>
+
+<%- include('../0_Home_page_frame/footer.ejs') %>
+    

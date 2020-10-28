@@ -1,0 +1,64 @@
+.internal-title{
+    background: rgb(0, 2, 4);
+    display: flex;
+}
+.internal-title img{
+    height: 200px;
+    width: 20%;
+}
+.internal-title h1{
+    color: #6197f3;
+    width: 80%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 60px;
+    padding-left: 70px;
+}
+
+/******  Projects button  ***********/
+
+.projects-buttons {
+    width: 95%;
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.projects-buttons a {
+    border-radius: 10px;
+    height: 200px;
+    width: 250px;
+    margin: 20px;
+    background: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.projects-buttons a .projects-buttons-img {
+    height: 150px;
+    width: 250px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.projects-buttons a .projects-buttons-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.projects-buttons a .text-button-project {
+    height: 50px;
+    vertical-align: middle;
+    line-height: 50px;
+    font-weight: 600;
+    color: #4c4c4c;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+
+.projects-buttons a:hover {
+    box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.19);
+    transform: scale(1.02);
+  }
+  

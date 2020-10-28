@@ -1,0 +1,90 @@
+.body_Page {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: bisque;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.ul-folders {
+  border-radius: 5px;
+  background: rgba(0, 183, 255, 0.897);
+  width: 500px;
+  padding: 10px;
+}
+.li-folder {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.425);
+  display: flex;
+  justify-content: flex-start;
+  padding: 3px;
+  margin: 2px;
+}
+li {
+  list-style-type: none;
+}
+.back-button{
+  border-radius: 10px;
+  background: rgba(0, 183, 255, 0.897);
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+}
+.hand-shape{
+  cursor: pointer;
+}
+.garbage-can{
+  float: left;
+  margin-left: 2px;
+  text-decoration: none;
+}
+.path-name{
+  width: 450px;
+}
+.unicode-folder{
+  margin-right: 2px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+}
+.unicode-file{
+  margin-right: 2px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+}
+.duplicate{
+  background: rgba(255, 255, 255, 0.671);
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
+  width: 80px;
+  text-align: center;
+  text-decoration: none;
+  text-decoration: none;
+  color: black;
+}
+.back-cd{
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 3px;
+  margin-right: 3px;
+  text-decoration: none;
+  color: black;
+}
+.path-locשtion{
+  border-radius: 5px;
+  background: rgba(0, 183, 255, 0.897);
+  width: 505px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+  padding: 8px;
+}

@@ -1,0 +1,47 @@
+<%- include('../0_Home_page_frame/top_title.ejs') %>
+<link rel='stylesheet' href='/stylesheets/2_controlr_fils.css' />
+
+<!-- edit tasks -->
+<%if (editTesks) { %>
+<%- include('../2_controlr_fils/includes/edit-window.ejs') %>
+<% } %>
+<!-- 1 Tesks  -->
+<div class="page-contoler-fils">
+
+    <div class="center-tasks-block">
+
+        <form class="formTesk" action="/controlr-fils" method="post">
+            <div id="myTest">
+                <input type="submit" value="הוסף משימה" class="button_enter_task">
+                <input type="text" id="input_text" name="task" placeholder="...הכנס תוכן"><br>
+            </div>
+            <input type="checkbox" class="checkBoxKlict">חפש משימות</input>
+            <ul class="ulTeskList">
+                <%- tesk %>
+            </ul>
+
+        </form>
+
+    </div>
+
+    <div class="control-Panel-block">
+        <%if (contrilsButtons) { %>
+            <%- contrilsButtons %>
+            <% } %>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<%- include('../0_Home_page_frame/footer.ejs') %>
+<script src="/javascripts/2_controlr_fils/Application_Tasks.js"></script>
