@@ -31,6 +31,7 @@ class Watch {
                                 if (event == 'change') {
                                     if (fileName.startsWith("PQ") && fileName.includes("PD-4")) {
                                         fs.readdir('//BINAW/data/PQFiles/' + fileName, (err, files) => {
+                                            if (!files) return
                                             files.forEach(element => {
                                                 if (element > 0 || element < 50) {
                                                     let test = fs.statSync('//BINAW/data/PQFiles/' + fileName + '/' + element);
@@ -76,6 +77,11 @@ class Watch {
                                                                     if (err) console.log(err);
                                                                 });
                                                             };
+                                                            if (!folders.includes("Esko")) {
+                                                                fs.mkdir('//BINAW/data/PQFiles/' + fileName + '/' + element + '/Esko', { recursive: true }, function (err) {
+                                                                    if (err) console.log(err);
+                                                                });
+                                                            };
                                                         };
                                                     };
                                                 });
@@ -116,6 +122,8 @@ class Watch {
                 });
         try {
             fs.watch("//BINAW/data/ProductionFiles", { persistent: true }, function (event, fileName) {
+                if (!fileName) return;
+
                 if (event == 'change') {
                     if (fileName.startsWith("SO") && fileName.includes("PD-4") || fileName.includes("BD-1")) {
                         modelsSequelize.controlr_buttons.findAll({ where: { id: 3 } })
@@ -131,6 +139,7 @@ class Watch {
                                     // console.log(fileName + "\n");
                                     setTimeout(function () {
                                         fs.readdir('//BINAW/data/ProductionFiles/' + fileName, (err, files) => {
+                                            if (!files) return;
                                             if (!files.includes(`sticker_${fileName}.pdf`)) {
                                                 files.forEach(element => {
                                                     if (element > 0 || element < 50) {

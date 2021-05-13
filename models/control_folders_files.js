@@ -1,5 +1,7 @@
 const watchFolder = require('./watch_folder');
 const sendEmails = require('./send_emails');
+const checkTemplates = require('./impising/checkTemplates');
+const checkTemplatesReady = require('./impising/checkTemplatesReady');
 const modelsSequelize = require('../mySql/models_sequelize');
 
 
@@ -21,10 +23,17 @@ const listButtonControls = [
 
 listButtonControls.forEach(element => {
    modelsSequelize.controlr_buttons.create({
-   id: element.id,
-   button_name: element.button_name
-});
-   
+      id: element.id,
+      button_name: element.button_name
+   })
+      .then(function (user) {
+         // you can now access the newly created user
+         console.log('success', user.toJSON());
+      })
+      .catch(function (err) {
+         // print the error details
+         console.log(err);
+      });
 });
 
 
@@ -34,11 +43,22 @@ class ControlerFF {
    }
 
    allControlers() {
-
+      // checkTemplates.PreparationTemplateTablets();
+      checkTemplatesReady.calculator();
       watchFolder.watchPQFiles();
       watchFolder.watchProductionFiles();
-      sendEmails.dailyReport();
-   }
+      this.HourlyFunction();
+   };
+
+   HourlyFunction = () => {
+      const hourNow = new Date().getHours();
+      if (hourNow == 17) {
+         sendEmails.dailyReport();
+      };
+      setTimeout(() => {
+         this.HourlyFunction();
+      }, 1000 * 60 * 59);
+   };
 }
 
 

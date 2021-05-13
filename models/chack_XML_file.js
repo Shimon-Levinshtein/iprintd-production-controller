@@ -17,6 +17,14 @@ class ChackXML {
         doerName: XMLFile.jobDetails.DOERNAME[0],
         salesAgent: XMLFile.jobDetails.XMLProducer[0]
         })
+        .then(function(user) {
+            // you can now access the newly created user
+            // console.log('success', user.toJSON());
+        })
+        .catch(function(err) {
+            // print the error details
+            console.log(err);
+        });
         
     }
     insertOrderToDataBase(XMLFile ,path){
@@ -32,6 +40,14 @@ class ChackXML {
         arrWitTheProperties: JSON.stringify(XMLFile.jobDetails),
         orderDate: XMLFile.jobDetails.orderDate[0],
         })
+        .then(function(user) {
+            // you can now access the newly created user
+            console.log('success', user.toJSON());
+        })
+        .catch(function(err) {
+            // print the error details
+            console.log(err);
+        });
         
     }
 }

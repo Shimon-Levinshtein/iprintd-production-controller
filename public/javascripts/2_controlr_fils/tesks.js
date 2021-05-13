@@ -11,8 +11,12 @@ class TeskFunction {
                 class: "hot",
             })
                 .then(result => {
-                    res(result);
+                    // res(result);
                 })
+                .catch(function(err) {
+                    // print the error details
+                    console.log(err);
+                });
         });
     }
     selectAllFromTable(database, Table) {

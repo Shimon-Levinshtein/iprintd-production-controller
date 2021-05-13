@@ -25,6 +25,7 @@
     "mysql2": "^2.0.2",
     "node-fs-extra": "^0.8.2",
     "nodemailer": "^6.4.3",
+    "pdf-lib": "^1.16.0",
     "sequelize": "^5.21.4",
     "xml2js": "^0.4.23"
   },
