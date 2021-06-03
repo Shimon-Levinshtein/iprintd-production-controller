@@ -27,10 +27,10 @@ class TeskFunction {
                     result.forEach(element => {
                         let tagTesk = `
                                 <li class="liTesk">
-                                        <a href="/controlr-fils/delete/?deleteID=${element.id}">🗑️</a>
-                                        <a href="/controlr-fils/edit?editId=${element.id}">✎</a>
+                                        <a href="/management-it-controlr-fils/delete/?deleteID=${element.id}">🗑️</a>
+                                        <a href="/management-it-controlr-fils/edit?editId=${element.id}">✎</a>
                                     <p class=" textP ${element.class}">${element.tesk}</p>
-                                    <a  href="/controlr-fils/?chekBoxBoutton=${element.id}&oldClass=${element.class}" >✅</a>
+                                    <a  href="/management-it-controlr-fils/?chekBoxBoutton=${element.id}&oldClass=${element.class}" >✅</a>
                                 </li>
                             `
                         list += tagTesk;

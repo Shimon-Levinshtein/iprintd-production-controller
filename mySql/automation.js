@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('./sequelize');
 
-exports.AllOrders = sequelize.define('All_Orders', {
+exports.automationData = sequelize.define('automationData', {
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -32,25 +32,29 @@ exports.AllOrders = sequelize.define('All_Orders', {
     arrWitTheProperties: {
         type: Sequelize.JSON
     },
-    orderDate: {
+    WhenDidTheOrderArrive: {
         type: Sequelize.DATE
     },
+    // automation
+    automationStatus: {
+        type: Sequelize.TEXT
+    },
+    automationSucceeded: {
+        type: Sequelize.TEXT
+    },
+    hotFolderAutomation: {
+        type: Sequelize.TEXT
+    },
+    whichTempleUse: {
+        type: Sequelize.TEXT
+    },
+    errorMessage: {
+        type: Sequelize.TEXT
+    },
+    HowMuchShouldHaveBeenPutOnPage: {
+        type: Sequelize.JSON
+    },
+    whatTemplateShouldHaveBeenPutTogether: {
+        type: Sequelize.JSON
+    },
 });
-
-// exports.controlr_buttons = sequelize.define('???????' , {
-//    id:{
-//        type: Sequelize.INTEGER,
-//        allowNull: false,
-//        autoIncrement: true,
-//        primaryKey: true
-//    },
-//    button_name:{
-//        type: Sequelize.STRING
-//    },
-//    On_Off: {
-//        type: Sequelize.TEXT
-//    },
-//    class: {
-//        type: Sequelize.TEXT
-//    },
-// });

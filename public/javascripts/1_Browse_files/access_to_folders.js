@@ -13,7 +13,7 @@ class FnFs {
             fs.readdirSync(this.fixPath(locשtion, true))
         } catch (arr) {
             const result = `
-                    <form action="/fs/cd" method="post" >
+                    <form action="/management-it-fs/cd" method="post" >
                         Please enter the path of your desktop: <input type="text" name="path"><br>
                         <input type="submit" value="Ok">
                     </form>
@@ -35,19 +35,19 @@ class FnFs {
                 <li><div class="li-folder">
                     <div class='hand-shape unicode-file'>📰</div>
                     <div class='path-name'>${index}</div> 
-                    <a href="/fs/duplicate/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape duplicate'>duplicate</a>
-                    <a href=" /fs/cd/${this.fixPath(this.cutLastDir(locשtion), false)}" class="back-cd hand-shape">↺</a>
-                    <a href="/fs/delete/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape garbage-can'>🗑️</a>
+                    <a href="/management-it-fs/duplicate/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape duplicate'>duplicate</a>
+                    <a href=" /management-it-fs/cd/${this.fixPath(this.cutLastDir(locשtion), false)}" class="back-cd hand-shape">↺</a>
+                    <a href="/management-it-fs/delete/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape garbage-can'>🗑️</a>
                 </div></li>`
                 }
                 if (test.isDirectory()) {
                     result += `
                 <li><div class="li-folder">
-                <a href="/fs/cd/${this.fixPath(locשtion + '/' + index, false)}" class='unicode-folder'>📁</a>
+                <a href="/management-it-fs/cd/${this.fixPath(locשtion + '/' + index, false)}" class='unicode-folder'>📁</a>
                 <div class='path-name'>${index}</div> 
-                <a href="/fs/duplicate/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape duplicate'>duplicate</a>
-                <a href="/fs/cd/${this.fixPath(this.cutLastDir(locשtion), false)}" class="back-cd hand-shape">↺</a>
-                <a href="/fs/delete/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape garbage-can'>🗑️</a>
+                <a href="/management-it-fs/duplicate/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape duplicate'>duplicate</a>
+                <a href="/management-it-fs/cd/${this.fixPath(this.cutLastDir(locשtion), false)}" class="back-cd hand-shape">↺</a>
+                <a href="/management-it-fs/delete/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape garbage-can'>🗑️</a>
                 </div></li>`
                 }
             } catch (arr) {
@@ -55,9 +55,9 @@ class FnFs {
                 <li><div class="li-folder">
                 <div class='hand-shape unicode-file'>📰</div>
                 <div class='path-name'>${index}</div> 
-                <a href="/fs/duplicate/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape duplicate'>duplicate</a>
-                <a href=" /fs/cd/${this.fixPath(this.cutLastDir(locשtion), false)}" class="back-cd hand-shape">↺</a>
-                <a href="/fs/delete/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape garbage-can'>🗑️</a>
+                <a href="/management-it-fs/duplicate/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape duplicate'>duplicate</a>
+                <a href=" /management-it-fs/cd/${this.fixPath(this.cutLastDir(locשtion), false)}" class="back-cd hand-shape">↺</a>
+                <a href="/management-it-fs/delete/${this.fixPath(locשtion + '/' + index, false)}" class='hand-shape garbage-can'>🗑️</a>
             </div></li>`
             }
         };

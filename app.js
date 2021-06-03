@@ -11,13 +11,14 @@ var indexRouter = require('./routes/home_page');
 var usersRouter = require('./routes/users');
 var usersFs = require('./routes/1_Browse_files/fs');
 var controlrFils = require('./routes/2_controlr_fils/2_controlr_fils');
+var automationScreenReport = require('./routes/automationReport/automationReportScreen');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+ 
 //Users + Passwords
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -75,9 +76,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(usersRouter);
-app.use('/', indexRouter);
-app.use('/fs', usersFs);
-app.use('/controlr-fils', controlrFils);
+app.use('/management-it', indexRouter);
+app.use('/management-it-fs', usersFs);
+app.use('/management-it-controlr-fils', controlrFils);
+app.use('/automation-report', automationScreenReport);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

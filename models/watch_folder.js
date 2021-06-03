@@ -2,8 +2,12 @@
 const fs = require("fs");
 const parseString = require('xml2js').parseString;
 const chackXMLfile = require('./chack_XML_file');
+const automationTest = require('./impising/automationTest');
+const copyingToOrder = require('./copyingToOrder');
 const modelsSequelize = require('../mySql/models_sequelize');
 const modelsOrdersCount = require('../mySql/models_orders_count');
+const fildData = require('./automationReport/fildData');
+
 
 
 console.log();
@@ -15,7 +19,7 @@ class Watch {
     }
 
     watchPQFiles() {
-       
+
         try {
             // Watch the sim directory
             fs.watch("//BINAW/data/PQFiles", { persistent: true }, function (event, fileName) {
@@ -25,7 +29,7 @@ class Watch {
                     modelsSequelize.controlr_buttons.findAll({ where: { id: 1 } })
                         .then(arr => {
                             if (arr[0].On_Off == 'on') {
-                                if(!arr){
+                                if (!arr) {
                                     return
                                 }
                                 if (event == 'change') {
@@ -66,8 +70,8 @@ class Watch {
                                     if (event == 'change') {
 
                                         fs.readdir('//BINAW/data/PQFiles/' + fileName, (err, files) => {
-                                            if(files) {
-                                                files.forEach(element => { 
+                                            if (files) {
+                                                files.forEach(element => {
                                                     if (element > 0 || element < 50) {
                                                         let test = fs.statSync('//BINAW/data/PQFiles/' + fileName + '/' + element);
                                                         if (test.isDirectory()) {
@@ -113,13 +117,13 @@ class Watch {
     watchProductionFiles() {
         let ordersFromSql = [];
         modelsOrdersCount.OrdersCount.findAll()
-                .then(result => {
-                    result.forEach(element => {
-                        if(ordersFromSql.includes(element.numbrOrder + '/' +  Number(element.itemID))) {
-                        }
-                        ordersFromSql.push(element.numbrOrder + '/' +  Number(element.itemID));
-                    });
+            .then(result => {
+                result.forEach(element => {
+                    if (ordersFromSql.includes(element.numbrOrder + '/' + Number(element.itemID))) {
+                    }
+                    ordersFromSql.push(element.numbrOrder + '/' + Number(element.itemID));
                 });
+            });
         try {
             fs.watch("//BINAW/data/ProductionFiles", { persistent: true }, function (event, fileName) {
                 if (!fileName) return;
@@ -128,11 +132,11 @@ class Watch {
                     if (fileName.startsWith("SO") && fileName.includes("PD-4") || fileName.includes("BD-1")) {
                         modelsSequelize.controlr_buttons.findAll({ where: { id: 3 } })
                             .then(arr => {
-                                if(!arr){
+                                if (!arr) {
                                     return
                                 }
                                 if (arr[0].On_Off == 'on') {
-                                    
+
                                     // var d = new Date();
                                     // console.log(d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
                                     // console.log("Event ProductionFiles: " + event);
@@ -158,7 +162,10 @@ class Watch {
                                                                         }
                                                                         chackXMLfile.chackXMLfile(result, '//BINAW/data/ProductionFiles/' + fileName + '/' + element);
                                                                         chackXMLfile.insertOrderToDataBase(result, '//BINAW/data/ProductionFiles/' + fileName + '/' + element);
-                                                                        console.log('insertOrderToDataBase+++++++++++++++++++++++++++++++++++++');
+                                                                        automationTest.checkOrderSection(result, '//BINAW/data/ProductionFiles/' + fileName + '/' + element);
+                                                                        copyingToOrder.copyFromPQFilesToProductionFiles(result, '//BINAW/data/ProductionFiles/' + fileName + '/' + element, element);
+                                                                        fildData.fildDataByOrder(result.jobDetails.uniqueItemID[0]);
+
                                                                     })
                                                                 }
                                                             };

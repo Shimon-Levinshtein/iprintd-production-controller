@@ -28,7 +28,7 @@ class ChackXML {
         
     }
     insertOrderToDataBase(XMLFile ,path){
-
+        
         allOrders.AllOrders.create({
         numbrOrder: XMLFile.jobDetails.JobNo[0],
         numbrOrderAndIitem: XMLFile.jobDetails.uniqueItemID[0],
@@ -42,7 +42,7 @@ class ChackXML {
         })
         .then(function(user) {
             // you can now access the newly created user
-            console.log('success', user.toJSON());
+            // console.log('success', user.toJSON());
         })
         .catch(function(err) {
             // print the error details

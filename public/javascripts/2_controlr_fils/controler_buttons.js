@@ -20,7 +20,7 @@ class Control {
                                 <p>${element.button_name}</p>
                             </div>
                             <div class="single-control-checkbox">
-                                    <a href="/controlr-fils/buttons-controls/?controlButtonID=${element.id}&class=${element.class}" >
+                                    <a href="/management-it-controlr-fils/buttons-controls/?controlButtonID=${element.id}&class=${element.class}" >
                                     <label class="q-switch-control">
                                         <div class="q-input-control ${element.class}" ></div> <!-- q-input-blue chench the button  -->
                                         <span class="q-slider q-round "></span>

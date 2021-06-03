@@ -10,13 +10,13 @@ router.get('/', function (req, res, next) {
     if (req.query.oldClass == 'mark-list') {
       tesksJs.update(req.query.chekBoxBoutton, 'not') 
         .then(update => {
-          res.redirect('/controlr-fils')
+          res.redirect('/management-it-controlr-fils')
         })
       return;
     } else {
       tesksJs.update(req.query.chekBoxBoutton, 'mark-list')
         .then(update => {
-          res.redirect('/controlr-fils')
+          res.redirect('/management-it-controlr-fils')
         })
       return;
     }
@@ -38,7 +38,7 @@ router.get('/', function (req, res, next) {
 router.get('/delete', (req, res) => {
   tesksJs.delete(req.query.deleteID) 
     .then(de => {
-      res.redirect('/controlr-fils');
+      res.redirect('/management-it-controlr-fils');
     });
 });
 /* etit */
@@ -67,7 +67,7 @@ router.post('/edit', function (req, res, next) {
 
   tesksJs.edit(req.body.idTesk, req.body.newTesk)
     .then(result => {
-      res.redirect('/controlr-fils');
+      res.redirect('/management-it-controlr-fils');
     })
 
 });
@@ -77,10 +77,10 @@ router.post('/', function (req, res, next) {
   if (req.body.task) {
     tesksJs.insertInto(req.body.task) 
       .then(result => {
-        res.redirect('/controlr-fils')
+        res.redirect('/management-it-controlr-fils')
       })
   } else {
-    res.redirect('/controlr-fils')
+    res.redirect('/management-it-controlr-fils')
   }
 });
 
@@ -98,7 +98,7 @@ router.get('/buttons-controls', (req, res) => {
   }
   controlr.buttonONOOf(req.query.controlButtonID, classDiv, offOn)
     .then(() => {
-      res.redirect('/controlr-fils');
+      res.redirect('/management-it-controlr-fils');
     })
 
 });

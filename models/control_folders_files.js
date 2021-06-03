@@ -1,8 +1,13 @@
 const watchFolder = require('./watch_folder');
 const sendEmails = require('./send_emails');
 const checkTemplates = require('./impising/checkTemplates');
+const checkTemplatesBooklets = require('./impising/checkTemplatesBooklets');
 const checkTemplatesReady = require('./impising/checkTemplatesReady');
 const modelsSequelize = require('../mySql/models_sequelize');
+const automationTest = require('./impising/automationTest');
+const fildData = require('./automationReport/fildData');
+const test = require('./tests/test');
+
 
 
 
@@ -21,21 +26,20 @@ const listButtonControls = [
    },
 ];
 
-listButtonControls.forEach(element => {
-   modelsSequelize.controlr_buttons.create({
-      id: element.id,
-      button_name: element.button_name
-   })
-      .then(function (user) {
-         // you can now access the newly created user
-         console.log('success', user.toJSON());
-      })
-      .catch(function (err) {
-         // print the error details
-         console.log(err);
-      });
-});
-
+// listButtonControls.forEach(element => {
+//    modelsSequelize.controlr_buttons.create({
+//       id: element.id,
+//       button_name: element.button_name
+//    })
+//       .then(function (user) {
+//          // you can now access the newly created user
+//          console.log('success', user.toJSON());
+//       })
+//       .catch(function (err) {
+//          // print the error details
+//          console.log(err);
+//       });
+// });
 
 class ControlerFF {
    constructor() {
@@ -43,8 +47,14 @@ class ControlerFF {
    }
 
    allControlers() {
+      // automationTest.checkOrderSection({Prepress: 'Automatic', numbrOrder: 'SO21PD-402788'}, '//BINAW/data/ProductionFiles/SO21PD-402788/1');
       // checkTemplates.PreparationTemplateTablets();
-      checkTemplatesReady.calculator();
+      // checkTemplatesBooklets.PreparationTemplateTablets();
+      // checkTemplatesReady.calculator();
+      // fildData.xxx();
+      // fildData.fildDataByOrder("SO21PD-403686-007");
+      // test.test();
+   
       watchFolder.watchPQFiles();
       watchFolder.watchProductionFiles();
       this.HourlyFunction();
