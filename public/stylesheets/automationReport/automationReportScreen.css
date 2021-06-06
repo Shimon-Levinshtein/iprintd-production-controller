@@ -1,0 +1,51 @@
+body {
+    margin: 0px;
+    background-color: rgb(107, 207, 253);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.automationReportScreen-contining-titel-top {
+    background-color: rgb(83, 201, 255);
+    height: 80px;
+}
+.automationReportScreen-H1-titel {
+    color:rgb(37, 37, 37);
+    text-align: center;
+    padding-top: 20px;
+    margin: 0px;
+}
+.automationReportScreen-contining-middle-div {
+    display: flex;
+    justify-content: space-around;
+}
+.automationReportScreen-contining-right-div {
+    background-color: rgb(196, 236, 255);
+    min-height: 400px;
+    width: 49%;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.automationReportScreen-contining-left-div {
+    background-color: rgb(196, 236, 255);
+    min-height: 400px;
+    width: 49%;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.automationReportScreen-left-li-poduct {
+    display: flex;
+    justify-content: right;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: gray;
+    width: 1000px;
+}
+.automationReportScreen-left-li-poduct h3{
+    margin: 0px;
+    margin-left: 5px;
+    min-width: 220px;
+}
+.automationReportScreen-left-li-poduct h4{
+    margin: 0px;
+    margin-left: 3px;
+    min-width: 150px;
+}

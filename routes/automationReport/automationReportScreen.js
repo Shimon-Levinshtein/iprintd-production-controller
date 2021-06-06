@@ -1,13 +1,25 @@
 var express = require('express');
 var router = express.Router();
-const fuFs = require('../../public/javascripts/1_Browse_files/access_to_folders');
+const reqestData = require('../../public/javascripts/automationReport/reqestData');
+const dataRequest = require('../../models/automationReport/dataRequest');
 
 
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('automationReport/automationReportScreen', { });
+  reqestData.ulReportByDays(5)
+  .then(objReport => {
+    
+    res.render('automationReport/automationReportScreen', { ulRight: objReport.ulRedyRight, ulLeft: objReport.ulLeft});
+  })
 });
+
+// router.get('/data:days', function (req, res, next) {
+//   dataRequest.requestDataByDaysBack(1)
+//   .then(value => {
+//     res.render('automationReport/automationReportScreen', { objOrders: value});
+//   })
+// });
 
 // router.get('/cd/:path', function (req, res, next) {
 //   const path = req.params.path;

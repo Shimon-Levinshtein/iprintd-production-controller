@@ -7,6 +7,7 @@ const modelsSequelize = require('../mySql/models_sequelize');
 const automationTest = require('./impising/automationTest');
 const fildData = require('./automationReport/fildData');
 const test = require('./tests/test');
+const dataRequest = require('./automationReport/dataRequest');
 
 
 
@@ -54,6 +55,11 @@ class ControlerFF {
       // fildData.xxx();
       // fildData.fildDataByOrder("SO21PD-403686-007");
       // test.test();
+      // dataRequest.requestDataByDaysBack(1)
+      // .then(value => {
+      //    console.log(value);
+      // })
+
    
       watchFolder.watchPQFiles();
       watchFolder.watchProductionFiles();

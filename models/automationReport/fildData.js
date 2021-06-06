@@ -71,7 +71,7 @@ class fildData {
                     automationSql.automationData.create(newObj)
                         .then(function (user) {
                             // you can now access the newly created user
-                            console.log('success', user.toJSON());
+                            // console.log('success', user.toJSON());
                         })
                         .catch(function (err) {
                             // print the error details
@@ -127,20 +127,31 @@ class fildData {
                                             resolve(objResult);
                                         };
                                     });
-
+                                    
                                 }
                             });
                             // reject(objResult);
                         } else {
                             setTimeout(function () {
                                 if (Rounds < 20) {
-                                    // console.log('setTimeout: ------------->>>>>>>>>>>> ' + path);
+                                    console.log('setTimeout: No file found in imposd folder ------------->>>>>>>>>>>> ' + Rounds);
                                     fun(id, numbrOrder, Rounds + 1);;
-                                };
+                                }else {
+                                    objResult.automationSucceeded = 'No file found in imposd folder';
+                                    resolve(objResult);
+                                }
                             }, 60000);
                         }
                     } else {
-                        resolve(objResult);
+                        setTimeout(function () {
+                            if (Rounds < 20) {
+                                console.log('setTimeout: No file found in imposd folder ------------->>>>>>>>>>>> ' + Rounds);
+                                fun(id, numbrOrder, Rounds + 1);;
+                            } else {
+                                objResult.automationSucceeded = 'No file found in imposd folder';
+                                resolve(objResult);
+                            }
+                        }, 60000);
                     };
                 });
             }
