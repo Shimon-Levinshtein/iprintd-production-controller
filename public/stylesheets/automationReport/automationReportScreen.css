@@ -34,18 +34,59 @@ body {
 .automationReportScreen-left-li-poduct {
     display: flex;
     justify-content: right;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: gray;
-    width: 1000px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    width: 98%;
+    /* border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: gray; */
 }
 .automationReportScreen-left-li-poduct h3{
     margin: 0px;
     margin-left: 5px;
-    min-width: 220px;
+    min-width: 28%;
+    padding-right: 3px;
 }
 .automationReportScreen-left-li-poduct h4{
     margin: 0px;
     margin-left: 3px;
-    min-width: 150px;
+    min-width: 14%;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: gray;
+    text-align: center;
+}
+.automationReportScreen-contining-percent {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+.automationReportScreen-Color-detail-in-percent {
+    width: 30%;
+    padding-right: 50px;
+    padding-top: 20px;
+}
+svg {
+    height: 500px;
+    width: 500px;
+}
+.automationReportScreen-Color-detail-in-percent-point-contining {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-bottom: 10px;
+}
+.automationReportScreen-Color-detail-in-percent-point {
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+}
+.automationReportScreen-Color-detail-in-percent-text-percent {
+    margin: 0px;
+    width: 50px;
+}
+.automationReportScreen-Color-detail-in-percent-text {
+    margin: 0px;
+    margin-right: 8px;
 }

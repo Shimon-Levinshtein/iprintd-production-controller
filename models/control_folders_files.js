@@ -8,6 +8,7 @@ const automationTest = require('./impising/automationTest');
 const fildData = require('./automationReport/fildData');
 const test = require('./tests/test');
 const dataRequest = require('./automationReport/dataRequest');
+const agentsReportsAssaf = require('./priorityReports/agentsReportsAssaf');
 
 
 
@@ -53,6 +54,7 @@ class ControlerFF {
       // checkTemplatesBooklets.PreparationTemplateTablets();
       // checkTemplatesReady.calculator();
       // fildData.xxx();
+      agentsReportsAssaf.agentsReportsAssaf();
       // fildData.fildDataByOrder("SO21PD-403686-007");
       // test.test();
       // dataRequest.requestDataByDaysBack(1)

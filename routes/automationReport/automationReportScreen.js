@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
   reqestData.ulReportByDays(5)
   .then(objReport => {
     
-    res.render('automationReport/automationReportScreen', { ulRight: objReport.ulRedyRight, ulLeft: objReport.ulLeft});
+    res.render('automationReport/automationReportScreen', { ulRight: objReport.ulRedyRight, ulLeft: objReport.ulLeft, svg: objReport.svg, percent: objReport.percent});
   })
 });
 

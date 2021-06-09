@@ -48,7 +48,7 @@ class fildData {
                     newObj.doerName = element.doerName;
                     newObj.salesAgent = element.salesAgent;
                     newObj.arrWitTheProperties = element.arrWitTheProperties;
-                    newObj.WhenDidTheOrderArrive = element.orderDate;
+                    newObj.WhenDidTheOrderArrive = new Date();
                     if (parameters.Prepress[0]) {
                         newObj.automationStatus = parameters.Prepress[0];
                         if (parameters.Prepress[0] == 'Automatic') {
