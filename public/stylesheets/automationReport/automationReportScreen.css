@@ -62,14 +62,14 @@ body {
     flex-direction: row;
     justify-content: right;
 }
+svg {
+    height: 500px;
+    width: 500px;
+}
 .automationReportScreen-Color-detail-in-percent {
     width: 30%;
     padding-right: 50px;
     padding-top: 20px;
-}
-svg {
-    height: 500px;
-    width: 500px;
 }
 .automationReportScreen-Color-detail-in-percent-point-contining {
     display: flex;

@@ -56,13 +56,13 @@ class AutomationTest {
                         };
 
 
-                        transporter.sendMail(mailOptions, function (error, info) {
-                            if (error) {
-                                console.log(error);
-                            } else {
-                                console.log('The email sented!');
-                            }
-                        });
+                        // transporter.sendMail(mailOptions, function (error, info) {
+                        //     if (error) {
+                        //         console.log(error);
+                        //     } else {
+                        //         console.log('The email sented!');
+                        //     }
+                        // });
                     } else {
                         setTimeout(function () {
                             if (Rounds < 20) {

@@ -1,21 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const reqestData = require('../../public/javascripts/automationReport/reqestData');
-const dataRequest = require('../../models/automationReport/dataRequest');
 const automationSequelize = require('../../mySql/automation');
 const { Op } = require('sequelize')
 const moment = require('moment');
 
 
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  reqestData.ulReportByDays(50)
-    .then(objReport => {
-
-      res.render('automationReport/automationReportScreen', { ulRight: objReport.ulRedyRight, ulLeft: objReport.ulLeft, svg: objReport.svg, percent: objReport.percent });
-    })
-});
 
 router.get('/data', function (req, res, next) {
   automationSequelize.automationData.findAll({
@@ -25,8 +15,33 @@ router.get('/data', function (req, res, next) {
       }
     }
   })
+  .then(objReport => {
+    
+    res.send(JSON.stringify(objReport));
+  })
+});
+
+router.get('/get-data-by-days/:days', function (req, res, next) {
+  const days = req.params.days;
+  const momentReport = new Date();
+  momentReport.setHours(8);
+  momentReport.setMinutes(0);
+  momentReport.setSeconds(0);
+  momentReport.setDate(momentReport.getDate() - days + 1);
+
+  console.log(`***********************************************************************`);
+  console.log(`momentReport`);
+  console.log(momentReport);
+  automationSequelize.automationData.findAll({
+    where: {
+      WhenDidTheOrderArrive: {
+        [Op.gte]: momentReport
+      }
+    }
+  })
     .then(objReport => {
-      res.send(objReport);
+      
+      res.send(JSON.stringify(objReport));
     })
 });
 

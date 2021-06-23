@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const controlFoldersFiles = require('./models/control_folders_files');
 const sequelize = require('./mySql/sequelize');
+var cors = require('cors');
 
 
 var indexRouter = require('./routes/home_page');
@@ -12,6 +13,7 @@ var usersRouter = require('./routes/users');
 var usersFs = require('./routes/1_Browse_files/fs');
 var controlrFils = require('./routes/2_controlr_fils/2_controlr_fils');
 var automationScreenReport = require('./routes/automationReport/automationReportScreen');
+var dateRequestsReport = require('./routes/dateRequests/dateRequestsReport');
 
 var app = express();
 
@@ -69,6 +71,7 @@ const session = require('express-session');
 //   });
 
 //Routers
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -80,6 +83,7 @@ app.use('/management-it', indexRouter);
 app.use('/management-it-fs', usersFs);
 app.use('/management-it-controlr-fils', controlrFils);
 app.use('/automation-report', automationScreenReport);
+app.use('/date-requests-report', dateRequestsReport);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

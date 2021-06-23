@@ -29,6 +29,7 @@ class ReqestData {
                     let automatic = 0;
                     let test = 0;
                     result.forEach(element => {
+                        const parameters = JSON.parse(element.arrWitTheProperties);
                         if (!objLeftRepot[element.product]) {
                             objLeftRepot[element.product] = {
                                 automatic: 0,
@@ -39,6 +40,9 @@ class ReqestData {
                             };
                         }
                         QuantityOrders++;
+                        // if (element.product == 'פלייר מחשבון') {
+                        //     console.log(element.numbrOrder + '$#$' + element.itemID + '$#$' + parameters.ScodixSpecs[0] + '$#$' + element.automationStatus);
+                        // }
                         
                         if (element.automationStatus == 'Automatic') {
                             automatic = automatic + 1;
