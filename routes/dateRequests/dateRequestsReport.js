@@ -28,10 +28,6 @@ router.get('/get-data-by-days/:days', function (req, res, next) {
   momentReport.setMinutes(0);
   momentReport.setSeconds(0);
   momentReport.setDate(momentReport.getDate() - days + 1);
-
-  console.log(`***********************************************************************`);
-  console.log(`momentReport`);
-  console.log(momentReport);
   automationSequelize.automationData.findAll({
     where: {
       WhenDidTheOrderArrive: {
